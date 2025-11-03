@@ -37,8 +37,9 @@ Input Layer → Hidden Layers → Output Layer (Sigmoid activation)
 Binary classification: churn or not churn
 
 Model saved as model.h5 after training:
-
+'''python
 model.save('model.h5')
+
 
 💻 3. Streamlit App (Online Prediction)
 
