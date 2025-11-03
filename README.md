@@ -37,7 +37,7 @@ Input Layer → Hidden Layers → Output Layer (Sigmoid activation)
 Binary classification: churn or not churn
 
 Model saved as model.h5 after training:
-'''python
+```python
 model.save('model.h5')
 
 
@@ -54,7 +54,7 @@ User inputs are encoded and scaled.
 The model predicts churn probability and displays the result in real time.
 
 Example snippet:
-
+```python
 model = tf.keras.models.load_model('model.h5')
 with open('onehot_encoder_geo.pkl', 'rb') as file:
     onehot_encoder_geo = pickle.load(file)
@@ -78,4 +78,43 @@ Make sure you have Python 3.8+ installed.
 pip install -r requirements.txt
 
 ☁️ On Google Colab:
+```python
 !pip install -r requirements.txt
+
+# Run the Streamlit App
+
+Start the app with this command:
+```python
+streamlit run app.py
+
+
+You’ll see output like:
+```python
+Local URL: http://localhost:8501
+Network URL: http://your-ip:8501
+
+
+Click the Local URL to open the web app in your browser.
+
+🧮 How to Use the App
+
+Enter customer information in the sidebar (credit score, geography, gender, age, balance, etc.).
+
+Click “Predict”.
+
+The app will:
+
+Preprocess the inputs (encode + scale)
+
+Run them through the trained ANN model
+
+Display a prediction:
+
+✅ Customer will stay
+
+⚠️ Customer likely to churn
+
+Example Output:
+```python 
+Prediction: Customer likely to stay
+Probability: 0.82 (82% confidence)
