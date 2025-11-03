@@ -28,3 +28,53 @@ Before training, the data is cleaned and encoded:
   ```python
   with open('scaler.pkl', 'rb') as file:
       scaler = pickle.load(file)
+🧠 2. Model Training (Offline)
+
+An Artificial Neural Network (ANN) was trained using TensorFlow/Keras:
+
+Input Layer → Hidden Layers → Output Layer (Sigmoid activation)
+
+Binary classification: churn or not churn
+
+Model saved as model.h5 after training:
+
+model.save('model.h5')
+
+💻 3. Streamlit App (Online Prediction)
+
+In app.py:
+
+The trained model and preprocessing objects are loaded.
+
+Streamlit provides input fields for user data.
+
+User inputs are encoded and scaled.
+
+The model predicts churn probability and displays the result in real time.
+
+Example snippet:
+
+model = tf.keras.models.load_model('model.h5')
+with open('onehot_encoder_geo.pkl', 'rb') as file:
+    onehot_encoder_geo = pickle.load(file)
+
+📁 Project Structure
+📦 churn-prediction-app
+ ┣ 📄 app.py                   # Streamlit application
+ ┣ 📄 model.h5                 # Trained ANN model
+ ┣ 📄 onehot_encoder_geo.pkl   # Encoder for Geography
+ ┣ 📄 onehot_encoder_gender.pkl # Encoder for Gender (if used)
+ ┣ 📄 scaler.pkl               # StandardScaler for numeric columns
+ ┣ 📄 requirements.txt         # Python dependencies
+ ┗ 📄 README.md                # Project documentation
+
+🚀 How to Run the Project
+Install Dependencies
+
+Make sure you have Python 3.8+ installed.
+
+🖥️ On your computer (VS Code / Command Prompt):
+pip install -r requirements.txt
+
+☁️ On Google Colab:
+!pip install -r requirements.txt
